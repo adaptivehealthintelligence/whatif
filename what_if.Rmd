@@ -69,7 +69,7 @@ Y = Y^A
 $$
 ]
 .pull-right[
-+ **Consistency**; if $A_i = a$ then $Y$ equal to potential outcome $Y_i^a = Y_i^A = Y_i$
++ **Consistency**; if $A_i = a$ then $Y$ equal to potential outcome $Y_i^a = Y_i^A = Y_i$ when observed
 ]
 
 ---
@@ -113,7 +113,7 @@ $$
 ]
 .pull-right[
 + **Independence**;
-$Y \perp A$
+$A$ does not predict $Y$, $Y \perp A$ and $A \perp Y$
 ]
 
 --
@@ -283,6 +283,11 @@ class: left, top
 
 + Observed risks are equal to the counterfactual risks within $L$
 
+--
+
++ OK, so how do we estimate the causal effects now?
+
+
 ---
 class: left, top
 ### Standarisation
@@ -384,4 +389,8 @@ conditional probability of outcome given treatment and strata membership
 --
 
 + IP weighting uses the conditional probability of treatment given the covariate 
+
+--
+
++ The end
 
