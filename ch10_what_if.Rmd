@@ -1,0 +1,174 @@
+---
+title: "Causal Inference - What If?"
+subtitle: "Chapter 10 - Random Variability"
+output:
+  xaringan::moon_reader:
+    self_contained: true
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE, message = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+options(htmltools.dir.version = FALSE)
+```
+
+# Causal inference gone wrong:
+
+- Systematic bias:
+
+  - (Unmeasured) Confounding
+  - Selection bias
+  - Measurement bias
+
+--
+
+Confounding not *expected* in randomised experiment.
+
+Selection and measurement bias may apply.
+
+--
+
+- **Random variability**
+
+  - sampling variability
+  - non-deterministic counterfactuals
+
+--
+
+So far ignored (assuming huge (infinite) study population)
+
+Non-ignorable in most study populations.
+
+---
+
+# Identify vs. Estimate Causal Effect
+
+**Identifiability** conditions:
+
+.pull-left[
++ **(Mean) Exchangeability**
+]
+
+.pull-right[
+$\forall a\ Y^a \perp\!\!\!\perp A$
+
+Independence between counterfactual outcome and observed treatment.
+
+]
+
+--
+
+.pull-left[
++ **Positivity**
+]
+
+.pull-right[
+$\forall l:\text{Pr}[L=l]>0, \text{Pr}[A=a|L=l]>0$
+]
+
+--
+
+.pull-left[
++ **Consistency**
+]
+
+.pull-right[
+$A=a\implies Y=Y^a$
+]
+
+--
+
+If infinite study population identifiable effect $\implies$ known effect
+
+If *finite*, identifiable effect $\implies$ estimated effect
+
+---
+
+# Estimation Goals
+
+- Study population a random sample from *super-population* ("infinite")
+
+- Goal: inference about super-population
+
+--
+
+- *Estimand* - parameter of interest in super-population: $\theta = P[Y=y|A=a]$
+
+--
+
+- *Estimator* - function of the data produces a value (estimate) for $\theta$: $\hat \theta(X)$
+
+--
+
+- *Estimate* - value of the estimator for given data: $\hat \theta(X=x)$
+
+---
+
+# Estimator Properties
+
+- *Estimator* $\hat\theta_n(X_1,...,X_n)$ is (asymptotically) *consistent* (converges in probability) if for $X_i\sim P$ and all $\epsilon>0$
+$$
+\lim_{n\to\infty}\text{Pr}_P\left[|\hat\theta_n-\theta|>\epsilon\right] = 0.
+$$
+Can make the estimator (distribution of the estimates) as close to the truth (in probability) as we want by increasing sample size, $n$.
+Assuming no systematic bias.
+
+--
+
+- *Estimator* $\hat\theta_n(X_1,...,X_n)$ is *unbiased* if for $X_i\sim P$
+$$
+\mathbb E_P[\hat\theta_n] = \theta.
+$$
+The average value of the estimator over all possible data from $P$ (over all estimates) is equal to the true value.
+
+--
+
+
+Estimator can be any combination of consistent or not and unbiased or not.
+
+For the study population usually have one $X$ of finite $n$- the realised *point estimate* may be far from the truth.
+
+
+---
+
+# Confidence Interval
+
+- Quantify random variability in the absence of systematic bias
+
+- Interval estimator with a given probability $\gamma$ of containing the truth over all $P$
+$$
+\inf_\theta\ \text{Pr}_P\left[\underline{\theta}_n(X) \leq \theta \leq \overline{\theta}_n(X)\right]=\gamma
+$$
+or at least asymptotically as $n\to\infty$.
+I.e. estimand is contained in the interval estimator in $100\gamma$% of intervals
+
+- Honest/uniform of coverage if $100\gamma$% for *all* values of $\theta$ as opposed to for a specific value of $\theta$
+
+
+---
+
+
+# Super-population
+
+- theoretical assumption
+
+- no need to differentiate between deterministic vs non-deterministc counterfactuals
+
+- leads to simple stats
+
+- generalisability, "what if participants had been randomly sampled from a super-population?". Similar to "what if the assumed data-generation model were true?"
+
+
+---
+
+
+# Conditionality principle
+
+
+---
+
+
+# Curse of dimensionality
